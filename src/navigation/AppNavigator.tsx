@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import TaskScreen from '../screens/TaskScreen';
-// import CreateTaskScreen from '../screens/CreateTaskScreen';
+import CreateTaskScreen from '../screens/CreateTaskScreen';
 // import EditTaskScreen from '../screens/EditTaskScreen';
 // import TaskDetailScreen from '../screens/TaskDetailScreen';
 import colors from '../theme/color';
@@ -34,11 +34,11 @@ export default function AppNavigator() {
           component={TaskScreen}
           options={{title: 'My Tasks'}}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="CreateTask"
           component={CreateTaskScreen}
           options={{title: 'Add New Task'}}
-        /> */}
+        />
         {/* <Stack.Screen
           name="EditTask"
           component={EditTaskScreen}
