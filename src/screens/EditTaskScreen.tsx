@@ -14,6 +14,7 @@ export default function EditTaskScreen() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [titleError, setTitleError] = useState('');
+  const [isInitialized, setIsInitialized] = useState(false); // Track if initial values are set
 
   const {getTaskById, editTask} = useTasks();
   const navigation = useNavigation();
@@ -33,11 +34,13 @@ export default function EditTaskScreen() {
   const task = getTaskById(taskId);
 
   useEffect(() => {
-    if (task) {
+    if (task && !isInitialized) {
+      // Only set initial values once
       setTitle(task.title);
       setDescription(task.description || '');
+      setIsInitialized(true); // Mark as initialized
     }
-  }, [task, getTaskById, taskId]);
+  }, [task, isInitialized]);
 
   const handleUpdateTask = async () => {
     if (!title.trim()) {
