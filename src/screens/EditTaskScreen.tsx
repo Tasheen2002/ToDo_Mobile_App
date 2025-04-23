@@ -105,7 +105,7 @@ export default function EditTaskScreen() {
           title="Cancel"
           variant="outline"
           onPress={() => navigation.goBack()}
-          style={styles.button}
+          style={[styles.button, styles.cancelButton]} // Add extra margin for the Cancel button
         />
       </View>
     </ScrollView>
@@ -126,5 +126,8 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '100%',
+  },
+  cancelButton: {
+    marginTop: 12, // Add spacing between the buttons
   },
 });

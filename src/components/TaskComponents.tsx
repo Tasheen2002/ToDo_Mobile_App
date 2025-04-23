@@ -1,6 +1,6 @@
 // src/components/TaskComponents.tsx
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import {Task} from '../store/taskSlice';
 import colors from '../theme/color';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -45,8 +45,21 @@ export const TaskItem = ({
       {onDelete && (
         <TouchableOpacity
           style={styles.deleteButton}
-          onPress={() => onDelete(task.id)}>
-          <Icon name="delete-outline" size={20} color={colors.error} />
+          onPress={() => {
+            Alert.alert(
+              'Delete Task',
+              'Are you sure you want to delete this task?',
+              [
+                {text: 'Cancel', style: 'cancel'},
+                {
+                  text: 'Delete',
+                  style: 'destructive',
+                  onPress: () => onDelete(task.id),
+                },
+              ],
+            );
+          }}>
+          <Icon name="delete" size={20} color={colors.error} />
         </TouchableOpacity>
       )}
     </TouchableOpacity>
@@ -98,6 +111,8 @@ const styles = StyleSheet.create({
     color: colors.completed,
   },
   deleteButton: {
-    padding: 4,
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: '#ffe5e5',
   },
 });
