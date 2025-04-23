@@ -25,6 +25,7 @@ export const useTasks = () => {
       const storedTasks = await loadTasks();
       dispatch(setTasks(storedTasks));
     };
+
     fetchTasks();
   }, [dispatch]);
 

@@ -3,6 +3,7 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Task} from '../store/taskSlice';
 import colors from '../theme/color';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface TaskItemProps {
   task: Task;
@@ -25,7 +26,7 @@ export const TaskItem = ({
       <TouchableOpacity
         style={[styles.checkbox, task.completed && styles.checkboxCompleted]}
         onPress={() => onToggleComplete(task.id)}>
-        {task.completed && <Text style={styles.checkmark}>✓</Text>}
+        {task.completed && <Icon name="check" size={16} color="white" />}
       </TouchableOpacity>
 
       <View style={styles.content}>
@@ -45,7 +46,7 @@ export const TaskItem = ({
         <TouchableOpacity
           style={styles.deleteButton}
           onPress={() => onDelete(task.id)}>
-          <Text style={styles.deleteText}>✕</Text>
+          <Icon name="delete-outline" size={20} color={colors.error} />
         </TouchableOpacity>
       )}
     </TouchableOpacity>
@@ -79,11 +80,6 @@ const styles = StyleSheet.create({
   checkboxCompleted: {
     backgroundColor: colors.primary,
   },
-  checkmark: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
   content: {
     flex: 1,
   },
@@ -102,11 +98,6 @@ const styles = StyleSheet.create({
     color: colors.completed,
   },
   deleteButton: {
-    padding: 8,
-  },
-  deleteText: {
-    color: colors.error,
-    fontSize: 18,
-    fontWeight: 'bold',
+    padding: 4,
   },
 });

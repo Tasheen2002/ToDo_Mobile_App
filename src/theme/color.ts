@@ -15,4 +15,5 @@ export const colors = {
   priorityMedium: '#f39c12',
   priorityLow: '#3498db',
 };
+
 export default colors;

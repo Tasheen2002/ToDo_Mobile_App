@@ -1,7 +1,7 @@
 // src/screens/TaskScreen.tsx
 import React from 'react';
 import {View, FlatList, StyleSheet, Text} from 'react-native';
-import {useTasks} from '../hooks/useTasks';
+import {useTasks} from '../hooks/useTask';
 import {TaskItem} from '../components/TaskComponents';
 import {Button} from '../components/ButtonComponents';
 import colors from '../theme/color';
