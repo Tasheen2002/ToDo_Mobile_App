@@ -1,5 +1,5 @@
 // src/store/taskSlice.ts
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export interface Task {
   id: string;
@@ -37,7 +37,9 @@ const taskSlice = createSlice({
       }
     },
     updateTask: (state, action: PayloadAction<Task>) => {
-      const index = state.tasks.findIndex(task => task.id === action.payload.id);
+      const index = state.tasks.findIndex(
+        task => task.id === action.payload.id,
+      );
       if (index !== -1) {
         state.tasks[index] = action.payload;
       }
@@ -57,13 +59,13 @@ const taskSlice = createSlice({
   },
 });
 
-export const { 
-  addTask, 
-  toggleTaskStatus, 
-  updateTask, 
-  deleteTask, 
+export const {
+  addTask,
+  toggleTaskStatus,
+  updateTask,
+  deleteTask,
   setTasks,
   setLoading,
-  setError
+  setError,
 } = taskSlice.actions;
 export default taskSlice.reducer;
